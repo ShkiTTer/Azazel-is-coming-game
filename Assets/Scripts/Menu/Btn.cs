@@ -25,7 +25,7 @@ public class Btn : MonoBehaviour
         switch ((Action) action)
         {
             case Action.Level:
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(3, LoadSceneMode.Single);
                 break;
 
             case Action.Exit:
@@ -45,7 +45,7 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Bonus:
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
                 Help_Script.SelectGG = 0;
                 break;
 
@@ -53,12 +53,16 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Restart:
+                Help_Script.RunLevel();
                 break;
 
             case Action.Menu:
+                SceneManager.LoadScene(0);
                 break;
 
             case Action.NextLevel:
+                Help_Script.CurrentLevel++;
+                Help_Script.RunLevel();
                 break;
         }
     }

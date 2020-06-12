@@ -2233,10 +2233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dc8a554ce420674fa97252752b717f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MobPrefabs:
-  - {fileID: 1393241313063818, guid: be509408880ff1f42aac64597ccc7961, type: 3}
-  - {fileID: 1081242684036536, guid: 454a0cb9b0c4b2f4b8ee25d9e0802cce, type: 3}
-  - {fileID: 1004683931253162, guid: 93504ac5230995a48bd218c0d9f1ad3a, type: 3}
+  Bes: {fileID: 1081242684036536, guid: 454a0cb9b0c4b2f4b8ee25d9e0802cce, type: 3}
+  Skelet: {fileID: 1393241313063818, guid: be509408880ff1f42aac64597ccc7961, type: 3}
   Pos:
   - {fileID: 178770199}
   - {fileID: 2010311897}

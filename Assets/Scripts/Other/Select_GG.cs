@@ -25,6 +25,6 @@ public class Select_GG : MonoBehaviour
     public void Click(int number)
     {
         Help_Script.SelectGG = number;
-        SceneManager.LoadScene(1);
+        Help_Script.RunLevel();
     }
 }

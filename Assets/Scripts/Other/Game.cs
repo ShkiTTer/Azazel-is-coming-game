@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Start_Game : MonoBehaviour
+public class Game : MonoBehaviour
 {
     public GameObject[] GG; // Персонажи
     public GameObject Loose, Win;
@@ -15,7 +16,7 @@ public class Start_Game : MonoBehaviour
         Help_Script.cnt_Murder = 0;
         Help_Script.CntBullet = 0;
         Help_Script.EndGame = false;
-        Help_Script.CntMobs = 10;
+        Help_Script.CntMobs = Help_Script.Levels[Help_Script.CurrentLevel].Waves.Sum(wave => wave.MobsCount);
         Help_Script.CntHP = 3;
         Win.SetActive(false);
         Loose.SetActive(false);
