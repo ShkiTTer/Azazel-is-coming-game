@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class Btn : MonoBehaviour
 {
+    public enum Action
+    {
+        Level, Arena, Records, Exit, Bonus, CloseRecords
+    }
+
     public GameObject Rec;
     public Text Txt;
 
@@ -15,19 +20,19 @@ public class Btn : MonoBehaviour
         Help_Script.LoadRecords();
     }
 
-    public void Click(int number)
+    public void Click(int action)
     {
-        switch (number)
+        switch ((Action) action)
         {
-            case 0:
+            case Action.Level:
                 SceneManager.LoadScene(3);
                 break;
 
-            case 1:
+            case Action.Exit:
                 Application.Quit();
                 break;
 
-            case 2:
+            case Action.Records:
                 Rec.SetActive(true);
                 Txt.text = "";
 
@@ -35,13 +40,16 @@ public class Btn : MonoBehaviour
 
                 break;
 
-            case 3:
+            case Action.CloseRecords:
                 Rec.SetActive(false);
                 break;
 
-            case 4:
+            case Action.Bonus:
                 SceneManager.LoadScene(2);
                 Help_Script.SelectGG = 0;
+                break;
+
+            case Action.Arena:
                 break;
         }
     }
