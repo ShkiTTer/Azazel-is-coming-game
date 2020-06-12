@@ -6,9 +6,15 @@ public class Fire : MonoBehaviour
 {
     public Rigidbody2D Bullet, Silv_Bullet;
     public float Speed;
-    public GameObject Bullet_Pos;
-    public GameObject Player;
-	
+    public Transform Bullet_Pos;
+
+    private AudioSource shootSound;
+
+    void Awake()
+    {
+        shootSound = this.GetComponent<AudioSource>();
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -24,14 +30,14 @@ public class Fire : MonoBehaviour
     void FireOn()
     {
         Vector3 pos = Input.mousePosition;
-        pos.z = transform.position.z - Camera.main.transform.position.z;
+        pos.z = Bullet_Pos.position.z - Camera.main.transform.position.z;
         pos = Camera.main.ScreenToWorldPoint(pos);
 
-        Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
-        Rigidbody2D go = Instantiate(Bullet, transform.position, q) as Rigidbody2D;
-        go.GetComponent<Rigidbody2D>().AddForce(go.transform.up * Speed);
+        Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - Bullet_Pos.position);
+        Rigidbody2D bullet = Instantiate(Bullet, Bullet_Pos.position, q) as Rigidbody2D;
+        bullet.AddForce(bullet.transform.up * Speed);
 
-        go.gameObject.GetComponent<AudioSource>().Play();
+        shootSound.Play();
         Help_Script.CntBullet++;
     }
 }

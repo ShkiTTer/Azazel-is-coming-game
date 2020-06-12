@@ -10,9 +10,6 @@ public class Spawn_Enemy : MonoBehaviour
     private float T_Spawn = 2f;
     private float T_Pause = 5f;
 
-    private GameObject tmp = null;
-    public GameObject Bes_S, Skel_S;
-
     private int cnt = 0;            // Кол-во заспавленных мобов
 
 	// Use this for initialization
