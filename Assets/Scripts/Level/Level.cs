@@ -10,12 +10,13 @@ namespace Assets.Scripts.Level
 {
     public class Level: BaseLevel
     {
-        public override int SceneNumber { get; } = 1;
+        public override int SceneNumber { get; }
         public override Dictionary<MobType, double> Mobs { get; }
         
-        public Level(int wavesCount, Dictionary<MobType, double> mobsProportion)
+        public Level(int wavesCount, Dictionary<MobType, double> mobsProportion, int sceneNumber = 1)
         {
             Mobs = mobsProportion;
+            SceneNumber = sceneNumber;
             GenerateWaves(wavesCount, wavesCount * 12);
         }
     }

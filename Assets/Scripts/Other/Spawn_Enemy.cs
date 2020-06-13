@@ -31,7 +31,7 @@ public class Spawn_Enemy : MonoBehaviour
     {
         Mobs = new List<MobType>();
 
-        foreach (var mob in Help_Script.Levels[Help_Script.CurrentLevel].Waves[currentWave].Mobs)
+        foreach (var mob in Help_Script.CurrentLevel.Waves[currentWave].Mobs)
         {
             Mobs.AddRange(Enumerable.Repeat(mob.Key, mob.Value));
         }
@@ -52,7 +52,6 @@ public class Spawn_Enemy : MonoBehaviour
                     var mob = rnd.Next(Mobs.Count);
 
                     Spawn(MobPrefabs[(int)Mobs[mob]]);
-                    Debug.Log((int)Mobs[mob]);
 
                     Mobs.RemoveAt(mob);
 

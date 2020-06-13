@@ -16,7 +16,7 @@ public class Game : MonoBehaviour
         Help_Script.cnt_Murder = 0;
         Help_Script.CntBullet = 0;
         Help_Script.EndGame = false;
-        Help_Script.CntMobs = Help_Script.Levels[Help_Script.CurrentLevel].Waves.Sum(wave => wave.MobsCount);
+        Help_Script.CntMobs = Help_Script.Levels[Help_Script.CurrentLevelNumber].Waves.Sum(wave => wave.MobsCount);
         Help_Script.CntHP = 3;
         Win.SetActive(false);
         Loose.SetActive(false);

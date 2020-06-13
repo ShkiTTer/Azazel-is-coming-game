@@ -15,7 +15,11 @@ public class Help_Script : MonoBehaviour
     public static int CntMobs = 10;
     public static bool EndGame = false;
     public static int CntHP = 3;
-    public static int CurrentLevel = 0;
+    public static int CurrentLevelNumber = 0;
+
+    public static Level CurrentLevel;
+
+    public static Level BonusLevel = new Level(5, new Dictionary<MobType, double> {{MobType.Cow, 1}}, 2);
 
     public static List<Level> Levels = new List<Level>
     {
@@ -41,9 +45,10 @@ public class Help_Script : MonoBehaviour
     private static string FolderName = Application.dataPath + "/User_Data";
     private static string FName = FolderName + @"/" + "save.hy";
 
-    public static void RunLevel()
+    public static void RunLevel(bool bonus = false)
     {
-        Levels[CurrentLevel].RunLevel();
+        CurrentLevel = bonus ? BonusLevel : Levels[CurrentLevelNumber];
+        CurrentLevel.RunLevel();
     }
 
     //Сохранение массива рекордов в файл

@@ -94,13 +94,16 @@ public class Player_Behav : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D info)
     {
-        if (info.gameObject.tag == "Enemy")
+        if (!Help_Script.EndGame)
         {
-            t = 0.15f;
-            GetComponent<SpriteRenderer>().color = Color.red;
-            IsTouch = true;
-            Help_Script.CntHP -= 1;
-            HP[Help_Script.CntHP].GetComponent<Image>().sprite = LoseHP;
+            if (info.gameObject.tag == "Enemy")
+            {
+                t = 0.15f;
+                GetComponent<SpriteRenderer>().color = Color.red;
+                IsTouch = true;
+                Help_Script.CntHP -= 1;
+                HP[Help_Script.CntHP].GetComponent<Image>().sprite = LoseHP;
+            }
         }
     }
 }
