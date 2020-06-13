@@ -21,16 +21,16 @@ namespace Assets.Scripts.Level
         {
             var waveProportion = new List<int>
             {
-                Mathf.RoundToInt(wavesCount * 0.3f),
-                Mathf.RoundToInt(wavesCount * 0.3f),
+                Mathf.RoundToInt(wavesCount * 0.2f),
+                Mathf.RoundToInt(wavesCount * 0.6f),
             };
             waveProportion.Add(wavesCount - waveProportion.Sum());
 
             var mobsProportion = new List<int>
             {
-                Mathf.RoundToInt(mobsCount * 0.2f),
-                Mathf.RoundToInt(mobsCount * 0.3f),
-                Mathf.RoundToInt (mobsCount * 0.5f)
+                Mathf.RoundToInt(mobsCount * 0.1f),
+                Mathf.RoundToInt(mobsCount * 0.6f),
+                Mathf.RoundToInt (mobsCount * 0.3f)
             };
 
             for (int i = 0; i < waveProportion.Count; i++)
@@ -39,7 +39,7 @@ namespace Assets.Scripts.Level
 
                 for (int j = 0; j < waveProportion[i]; j++)
                 {
-                    Waves.Add(new Wave(j * delta + delta, Mobs));
+                    Waves.Add(new Wave(delta, Mobs));
                 }
             }
         }

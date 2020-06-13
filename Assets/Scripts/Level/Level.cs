@@ -16,7 +16,7 @@ namespace Assets.Scripts.Level
         public Level(int wavesCount, Dictionary<MobType, double> mobsProportion)
         {
             Mobs = mobsProportion;
-            GenerateWaves(wavesCount, wavesCount * 10);
+            GenerateWaves(wavesCount, wavesCount * 12);
         }
     }
 }

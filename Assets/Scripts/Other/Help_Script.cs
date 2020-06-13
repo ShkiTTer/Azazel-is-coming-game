@@ -19,15 +19,15 @@ public class Help_Script : MonoBehaviour
 
     public static List<Level> Levels = new List<Level>
     {
-        new Level(3, new Dictionary<MobType, double>
-        {
-            {MobType.Skeleton, 1}
-        }),
         new Level(4, new Dictionary<MobType, double>
         {
             {MobType.Skeleton, 1}
         }),
         new Level(5, new Dictionary<MobType, double>
+        {
+            {MobType.Skeleton, 1}
+        }),
+        new Level(6, new Dictionary<MobType, double>
         {
             {MobType.Skeleton, .9},
             {MobType.Bes, .1}
