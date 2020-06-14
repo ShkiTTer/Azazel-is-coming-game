@@ -8,7 +8,7 @@ public class Game : MonoBehaviour
 {
     public GameObject[] GG; // Персонажи
     public GameObject Loose, Win;
-    public Text Kill, Bullet;
+    public Text Kill, Bullet, CntMurder;
 
     // Use this for initialization
     void Awake ()
@@ -41,6 +41,15 @@ public class Game : MonoBehaviour
                 Bullet.text = Help_Script.CntBullet.ToString();
 
                 Help_Script.Save_Records();
+            }
+        }
+        else
+        {
+            CntMurder.text = Help_Script.cnt_Murder.ToString();
+
+            if (Help_Script.CntMobs == 0)
+            {
+                Help_Script.EndGame = true;
             }
         }
     }

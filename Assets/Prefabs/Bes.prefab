@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 95238648082793896}
   - component: {fileID: 114735757874860218}
   - component: {fileID: 61757121800191340}
+  - component: {fileID: 410999236583958822}
   m_Layer: 0
   m_Name: Bes
   m_TagString: Enemy
@@ -115,10 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a89f04a2a61b45b559350f7c88bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed_Move: 3
-  Player: {fileID: 0}
-  Murder: {fileID: 0}
-  Health: 150
 --- !u!61 &61757121800191340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145,3 +142,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4955604, y: 0.96980417}
   m_EdgeRadius: 0
+--- !u!114 &410999236583958822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081242684036536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e797d2e9b2577c40b8fdcdc2d4a01bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cntHp: 200
+  _speed: 3.5
+  Player: {fileID: 0}
