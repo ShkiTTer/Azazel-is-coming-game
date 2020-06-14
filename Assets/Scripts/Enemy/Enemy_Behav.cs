@@ -37,8 +37,6 @@ public class Enemy_Behav : MonoBehaviour
 	            IsTouch = false;    
 	        }
 	    }
-
-        
     }
 
     void OnCollisionEnter2D(Collision2D info)
