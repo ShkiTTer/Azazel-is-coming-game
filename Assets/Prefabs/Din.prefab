@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 58350012199646102}
   - component: {fileID: -5091014441657743345}
   - component: {fileID: 2440513078563578096}
+  - component: {fileID: 817063616239556552}
   m_Layer: 0
   m_Name: Din
   m_TagString: Player
@@ -361,3 +362,15 @@ MonoBehaviour:
   Silv_Bullet: {fileID: 0}
   Speed: 500
   Bullet_Pos: {fileID: 4650742512916244}
+--- !u!114 &817063616239556552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831172431728116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb6d2fd3b3ba954fb090537ce94f5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
