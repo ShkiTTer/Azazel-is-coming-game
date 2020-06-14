@@ -1,36 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Character;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player_Behav : MonoBehaviour
 {
-    [Tooltip("Скорость передвижения игрока")]public float Speed_Player;
-    [Tooltip("Сердечки")]public GameObject[] HP;
-    [Tooltip("Спрайты сердечек")]public Sprite FullHP, LoseHP;
-
-    private Vector3 Move_Player;    // Куда идет игрок
-    private Animator Anim;          // Аниматор перса
     private Camera Cam;
-    private Ray ray;
-    private RaycastHit Hit2D;
+    private Player player;
 
     private float t;
     private bool IsTouch = false;
 
+    void Awake()
+    {
+        Cam = Camera.main;
+        player = GetComponent<Player>();
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
-	    Cam = Camera.main;
-	    Anim = GetComponent<Animator>();
-	    Anim.SetBool("Stay", true);
-        
-	    for (int i = 0; i < Help_Script.CntHP; ++i)
-	    {
-            HP[i] = GameObject.Find("HP_"+(i+1));
-	        HP[i].GetComponent<Image>().sprite = FullHP;
-	    }
-	}
+	    
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -49,34 +41,29 @@ public class Player_Behav : MonoBehaviour
 
 	        if (Input.GetKey(KeyCode.A)) // Движение влево
 	        {
-	            transform.position += Vector3.left * Speed_Player * Time.deltaTime;
-	            Anim.SetBool("Stay", false);
-	            Anim.SetBool("Run", true);
+	            transform.position += Vector3.left * player.Speed * Time.deltaTime;
+	            player.EnableRunAnimation();
 	        }
 	        if (Input.GetKey(KeyCode.D)) // Движение вправо
 	        {
-	            transform.position += Vector3.right * Speed_Player * Time.deltaTime;
-	            Anim.SetBool("Stay", false);
-	            Anim.SetBool("Run", true);
-	        }
+	            transform.position += Vector3.right * player.Speed * Time.deltaTime;
+				player.EnableRunAnimation();
+			}
 	        if (Input.GetKey(KeyCode.W)) // Движение вверх
 	        {
-	            transform.position += Vector3.up * Speed_Player * Time.deltaTime;
-	            Anim.SetBool("Stay", false);
-	            Anim.SetBool("Run", true);
-	        }
+	            transform.position += Vector3.up * player.Speed * Time.deltaTime;
+				player.EnableRunAnimation();
+			}
 	        if (Input.GetKey(KeyCode.S)) // Движение вниз
 	        {
-	            transform.position += Vector3.down * Speed_Player * Time.deltaTime;
-	            Anim.SetBool("Stay", false);
-	            Anim.SetBool("Run", true);
-	        }
+	            transform.position += Vector3.down * player.Speed * Time.deltaTime;
+				player.EnableRunAnimation();
+			}
 
 	        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) &&
 	            !Input.GetKey(KeyCode.S))
 	        {
-	            Anim.SetBool("Stay", true);
-	            Anim.SetBool("Run", false);
+	            player.EnableStayAnimation();
 	        }
 
 	        if (IsTouch)
@@ -85,7 +72,7 @@ public class Player_Behav : MonoBehaviour
 
 	            if (t <= 0)
 	            {
-	                GetComponent<SpriteRenderer>().color = Color.white;
+                    player.ChangeColor(Color.white);
 	                IsTouch = false;
 	            }
 	        }
@@ -99,10 +86,9 @@ public class Player_Behav : MonoBehaviour
             if (info.gameObject.tag == "Enemy")
             {
                 t = 0.15f;
-                GetComponent<SpriteRenderer>().color = Color.red;
-                IsTouch = true;
-                Help_Script.CntHP -= 1;
-                HP[Help_Script.CntHP].GetComponent<Image>().sprite = LoseHP;
+                player.CntHp--;
+				player.ChangeColor(Color.red);
+				IsTouch = true;
             }
         }
     }

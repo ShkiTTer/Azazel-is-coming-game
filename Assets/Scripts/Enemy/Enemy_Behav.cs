@@ -17,7 +17,7 @@ public class Enemy_Behav : MonoBehaviour
 	void Start () {
 		Player = GameObject.FindWithTag("Player");
 	    Murder = GameObject.Find("Murder_Cnt").GetComponent<Text>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()

@@ -13,12 +13,11 @@ namespace Assets.Scripts.Character
         [SerializeField] protected float _speed;
 
         protected SpriteRenderer renderer;
-        protected Transform transform;
 
         public virtual int CntHp
         {
             get => _cntHp;
-            protected set => _cntHp = value;
+            set => _cntHp = value;
         }
 
         public virtual float Speed
@@ -30,7 +29,11 @@ namespace Assets.Scripts.Character
         protected virtual void Awake()
         {
             renderer = GetComponent<SpriteRenderer>();
-            transform = GetComponent<Transform>();
+        }
+
+        public virtual void ChangeColor(Color color)
+        {
+            renderer.color = color;
         }
     }
 }

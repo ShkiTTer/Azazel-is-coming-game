@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 95630641886622024}
   - component: {fileID: 5321529715758749998}
   - component: {fileID: 8523499992501831387}
+  - component: {fileID: 2690255414469336456}
   m_Layer: 0
   m_Name: Sam
   m_TagString: Player
@@ -105,13 +106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1960994ead3ac9d4195039a4f4a041bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed_Player: 5
-  HP:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  FullHP: {fileID: 21300000, guid: 4e2ea5c314e0ca7418d54ef4ab1805ea, type: 3}
-  LoseHP: {fileID: 21300000, guid: fdc0fab3ccf290545a51148f47bf1b6a, type: 3}
 --- !u!50 &50667480982317342
 Rigidbody2D:
   serializedVersion: 4
@@ -280,6 +274,22 @@ MonoBehaviour:
   Silv_Bullet: {fileID: 0}
   Speed: 500
   Bullet_Pos: {fileID: 4217838868880214}
+--- !u!114 &2690255414469336456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019894447887102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb6d2fd3b3ba954fb090537ce94f5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cntHp: 3
+  _speed: 5
+  FullHP: {fileID: 21300000, guid: 4e2ea5c314e0ca7418d54ef4ab1805ea, type: 3}
+  LoseHP: {fileID: 21300000, guid: fdc0fab3ccf290545a51148f47bf1b6a, type: 3}
 --- !u!1 &1367221427015808
 GameObject:
   m_ObjectHideFlags: 0

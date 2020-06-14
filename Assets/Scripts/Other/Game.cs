@@ -17,7 +17,6 @@ public class Game : MonoBehaviour
         Help_Script.CntBullet = 0;
         Help_Script.EndGame = false;
         Help_Script.CntMobs = Help_Script.Levels[Help_Script.CurrentLevelNumber].Waves.Sum(wave => wave.MobsCount);
-        Help_Script.CntHP = 3;
         Win.SetActive(false);
         Loose.SetActive(false);
 	    GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
@@ -26,23 +25,23 @@ public class Game : MonoBehaviour
 
     void Update()
     {
-        if (Help_Script.CntMobs == 0)
+        if (Help_Script.EndGame)
         {
-            Win.SetActive(true);
-            Help_Script.EndGame = true;
+            if (Help_Script.CntMobs == 0)
+            {
+                Win.SetActive(true);
 
-            Help_Script.Save_Records();
-        }
+                Help_Script.Save_Records();
+            }
+            else 
+            {
+                Loose.SetActive(true);
 
-        if (Help_Script.CntHP == 0)
-        {
-            Loose.SetActive(true);
-            Help_Script.EndGame = true;
+                Kill.text = Help_Script.cnt_Murder.ToString();
+                Bullet.text = Help_Script.CntBullet.ToString();
 
-            Kill.text = Help_Script.cnt_Murder.ToString();
-            Bullet.text = Help_Script.CntBullet.ToString();
-
-            Help_Script.Save_Records();
+                Help_Script.Save_Records();
+            }
         }
     }
 }
