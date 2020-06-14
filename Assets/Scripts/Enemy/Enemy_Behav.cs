@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Bullet;
 using Assets.Scripts.Character;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,7 +46,7 @@ public class Enemy_Behav : MonoBehaviour
         if (info.gameObject.tag == "Bullet")
         {
             t = 0.15f;
-            mob.CntHp -= 50;
+            mob.CntHp -= info.gameObject.GetComponent<Bullet>().Damage;
             mob.ChangeColor(Color.red);
             IsTouch = true;
         }
