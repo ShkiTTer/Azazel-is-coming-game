@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Din_Pistol_Stay
+  m_Name: Din_Crossbow_Stay
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: eb2986dae048a3e469241e4de09210bd, type: 3}
+      value: {fileID: 4344943698927575779, guid: 56ba96a3f2990554d8df5ebecf17741d,
+        type: 3}
     - time: 0.35714287
-      value: {fileID: 21300002, guid: eb2986dae048a3e469241e4de09210bd, type: 3}
+      value: {fileID: -5150673851403710373, guid: 56ba96a3f2990554d8df5ebecf17741d,
+        type: 3}
+    - time: 0.6785714
+      value: {fileID: 4344943698927575779, guid: 56ba96a3f2990554d8df5ebecf17741d,
+        type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,14 +47,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: eb2986dae048a3e469241e4de09210bd, type: 3}
-    - {fileID: 21300002, guid: eb2986dae048a3e469241e4de09210bd, type: 3}
+    - {fileID: 4344943698927575779, guid: 56ba96a3f2990554d8df5ebecf17741d, type: 3}
+    - {fileID: -5150673851403710373, guid: 56ba96a3f2990554d8df5ebecf17741d, type: 3}
+    - {fileID: 4344943698927575779, guid: 56ba96a3f2990554d8df5ebecf17741d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.39285716
+    m_StopTime: 0.7142857
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
