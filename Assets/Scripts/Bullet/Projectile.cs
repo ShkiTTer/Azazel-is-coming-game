@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Bullet
 {
-    public class Bullet : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         [SerializeField] private int _damage;
-        [SerializeField] private BulletType _bulletType;
+        [SerializeField] private ProjectileType _projectileType;
 
         public int Damage
         {
@@ -18,6 +18,6 @@ namespace Assets.Scripts.Bullet
             private set => _damage = value;
         }
 
-        public BulletType BulletType => _bulletType;
+        public ProjectileType ProjectileType => _projectileType;
     }
 }

@@ -44,7 +44,7 @@ public class Enemy_Behav : MonoBehaviour
         if (info.gameObject.tag == "Bullet")
         {
             t = 0.15f;
-            mob.CntHp -= info.gameObject.GetComponent<Bullet>().Damage;
+            mob.CntHp -= info.gameObject.GetComponent<Projectile>().Damage;
             mob.ChangeColor(Color.red);
             IsTouch = true;
         }

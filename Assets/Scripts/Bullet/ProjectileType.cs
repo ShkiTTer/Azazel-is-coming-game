@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Bullet
 {
-    public enum BulletType
+    public enum ProjectileType
     {
         Bullet, Bolt
     }

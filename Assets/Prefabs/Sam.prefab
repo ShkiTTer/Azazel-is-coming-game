@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 58543593823945204}
   - component: {fileID: 95630641886622024}
   - component: {fileID: 5321529715758749998}
-  - component: {fileID: 8523499992501831387}
   - component: {fileID: 2690255414469336456}
   m_Layer: 0
   m_Name: Sam
@@ -258,22 +257,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &8523499992501831387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019894447887102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d0f3b0c75f0524459c5f3127c5a0c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 50312445923281100, guid: 99f74bb593cf9b242aa4adf6d2a6867e, type: 3}
-  Silv_Bullet: {fileID: 0}
-  Speed: 500
-  Bullet_Pos: {fileID: 4217838868880214}
 --- !u!114 &2690255414469336456
 MonoBehaviour:
   m_ObjectHideFlags: 0

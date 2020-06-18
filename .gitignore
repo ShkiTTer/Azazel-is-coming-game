@@ -79,3 +79,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+.vs/
+/Azazel is coming_Data/
+/UIELementsSchema/
+/MonoBleedingEdge/
+*.exe
+UnityPlayer.dll

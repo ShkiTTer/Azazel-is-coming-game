@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Assets.Scripts.Weapon;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,7 @@ namespace Assets.Scripts.Character
 
         private Animator animator;
         private List<Image> hpObjects = new List<Image>();
+        private BaseWeapon Weapon;
 
         public const int MaxHp = 3;
 
@@ -51,6 +52,8 @@ namespace Assets.Scripts.Character
         {
             base.Awake();
             animator = GetComponent<Animator>();
+            Weapon = gameObject.AddComponent(typeof(Pistol)) as Pistol;
+            Weapon.Bullet_Pos = GetComponentsInChildren<Transform>()[1];
 
             for (int i = 0; i < MaxHp; i++)
             {
