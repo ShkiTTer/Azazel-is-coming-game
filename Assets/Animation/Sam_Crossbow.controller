@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sam_Pistol
+  m_Name: Sam_Crossbow
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Stay
@@ -167,7 +167,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: deebd2aa2a8ebb94a9d013eb63bf8757, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6cd81a7d321d0ba4f95e53a63da6c1bd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -194,7 +194,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 63888be71e4a968479ec6a6d7d770c34, type: 2}
+  m_Motion: {fileID: 7400000, guid: 33c3c1c47d1f00740b0abfe1356b5f17, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -239,7 +239,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102982232873613340}
-    m_Position: {x: 270, y: -10, z: 0}
+    m_Position: {x: 264, y: -12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102897095050287144}
     m_Position: {x: 504, y: -12, z: 0}
