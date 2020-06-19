@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     public GameObject[] GG; // Персонажи
-    public GameObject Loose, Win;
+    public GameObject Loose, Win, Pause;
     public Text Kill, Bullet, CntMurder;
 
     // Use this for initialization
@@ -45,6 +45,14 @@ public class Game : MonoBehaviour
         }
         else
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Help_Script.IsPause = true;
+                Time.timeScale = 0f;
+            }
+
+            Pause.SetActive(Help_Script.IsPause);
+
             CntMurder.text = Help_Script.cnt_Murder.ToString();
 
             if (Help_Script.CntMobs == 0)

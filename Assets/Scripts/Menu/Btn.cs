@@ -9,7 +9,7 @@ public class Btn : MonoBehaviour
 {
     public enum Action
     {
-        Level, Arena, Records, Exit, Bonus, CloseRecords, Restart, Menu, NextLevel
+        Level, Arena, Records, Exit, Bonus, CloseRecords, Restart, Menu, NextLevel, Resume
     }
 
     public GameObject Rec;
@@ -18,6 +18,7 @@ public class Btn : MonoBehaviour
     void Start()
     {
         Help_Script.LoadRecords();
+        Time.timeScale = 1f;
     }
 
     public void Click(int action)
@@ -63,6 +64,11 @@ public class Btn : MonoBehaviour
             case Action.NextLevel:
                 Help_Script.CurrentLevelNumber++;
                 Help_Script.RunLevel();
+                break;
+
+            case Action.Resume:
+                Help_Script.IsPause = false;
+                Time.timeScale = 1f;
                 break;
         }
     }

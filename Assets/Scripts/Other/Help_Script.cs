@@ -13,7 +13,7 @@ public class Help_Script : MonoBehaviour
     public static int SelectGG; // Выбранный герой
     public static int CntBullet; // Кол-во выпущенных пуль
     public static int CntMobs = 10;
-    public static bool EndGame = false;
+    public static bool EndGame = false, IsPause = false;
     public static int CntHP = 3;
     public static int CurrentLevelNumber = 0;
 
