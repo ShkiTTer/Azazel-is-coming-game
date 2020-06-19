@@ -21,6 +21,7 @@ public class Game : MonoBehaviour
         Loose.SetActive(false);
 	    GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
 	    clone.transform.position = new Vector3(0f, 0f, 10f);
+        Help_Script.IsPause = false;
     }
 
     void Update()

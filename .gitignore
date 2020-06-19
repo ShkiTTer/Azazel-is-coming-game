@@ -84,5 +84,5 @@ $RECYCLE.BIN/
 /Azazel is coming_Data/
 /UIELementsSchema/
 /MonoBleedingEdge/
-*.exe
+*.exe*
 UnityPlayer.dll

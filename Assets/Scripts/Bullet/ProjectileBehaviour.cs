@@ -13,6 +13,13 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D info)
     {
-        Destroy(gameObject);
+        if (info.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<CircleCollider2D>(), info.collider);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
