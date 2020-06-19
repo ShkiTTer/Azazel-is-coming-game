@@ -13,7 +13,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D info)
     {
-        if (info.gameObject.tag == "Player")
+        if (info.gameObject.tag == "Player" || info.gameObject.tag == "Projectile")
         {
             Physics2D.IgnoreCollision(this.GetComponent<CircleCollider2D>(), info.collider);
         }

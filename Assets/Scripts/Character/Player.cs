@@ -52,7 +52,7 @@ namespace Assets.Scripts.Character
         {
             base.Awake();
             animator = GetComponent<Animator>();
-            Weapon = gameObject.AddComponent(typeof(Pistol)) as Pistol;
+            Weapon = gameObject.AddComponent(typeof(Crossbow)) as Crossbow;
             Weapon.Bullet_Pos = GetComponentsInChildren<Transform>()[1];
 
             for (int i = 0; i < MaxHp; i++)

@@ -12,7 +12,10 @@ namespace Assets.Scripts.Weapon
         public Rigidbody2D Projectile;
         public Transform Bullet_Pos;
         public float Speed;
-        protected AudioSource ShootSound;
+        public bool canShoot = true;
+        public float shootDelay = 1f;
+
+        abstract protected IEnumerator<WaitForSeconds> FireType(Quaternion q);
 
         void Update()
         {
@@ -30,10 +33,19 @@ namespace Assets.Scripts.Weapon
             pos = Camera.main.ScreenToWorldPoint(pos);
 
             Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - Bullet_Pos.position);
-            Rigidbody2D projectile = Instantiate(Projectile, Bullet_Pos.position, q) as Rigidbody2D;
-            projectile.AddForce(projectile.transform.up * Speed);
+            if (canShoot)
+            {
+                canShoot = false;
+                StartCoroutine(FireType(q));
+            }
 
             Help_Script.CntBullet++;
+        }
+
+        protected IEnumerator<WaitForSeconds> ShootDelay()
+        {
+            yield return new WaitForSeconds(shootDelay);
+            canShoot = true;
         }
     }
 }

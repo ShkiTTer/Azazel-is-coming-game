@@ -41,7 +41,7 @@ public class Enemy_Behav : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D info)
     {
-        if (info.gameObject.tag == "Bullet")
+        if (info.gameObject.tag == "Projectile")
         {
             t = 0.15f;
             mob.CntHp -= info.gameObject.GetComponent<Projectile>().Damage;
