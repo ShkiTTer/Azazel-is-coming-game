@@ -43,6 +43,7 @@ public class Enemy_Behav : MonoBehaviour
     {
         if (info.gameObject.tag == "Projectile")
         {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), info.collider);
             t = 0.15f;
             mob.CntHp -= info.gameObject.GetComponent<Projectile>().Damage;
             mob.ChangeColor(Color.red);
