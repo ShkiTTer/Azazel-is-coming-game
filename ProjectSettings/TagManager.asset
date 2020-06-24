@@ -13,6 +13,7 @@ TagManager:
   - Enemy_Skelet
   - Canvas_Win
   - Canvas_Loose
+  - Bonus
   layers:
   - Default
   - TransparentFX
