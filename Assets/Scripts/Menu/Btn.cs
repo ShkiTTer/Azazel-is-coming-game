@@ -46,7 +46,8 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Bonus:
-                Help_Script.RunLevel(true);
+                Help_Script.NewLevel(true);
+                Help_Script.RunLevel();
                 Help_Script.SelectGG = 0;
                 break;
 
@@ -54,15 +55,16 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Restart:
-                Help_Script.RunLevel();
+                Help_Script.RestartLevel();
                 break;
 
             case Action.Menu:
+                Help_Script.ResetStats();
                 SceneManager.LoadScene(0);
                 break;
 
             case Action.NextLevel:
-                Help_Script.CurrentLevelNumber++;
+                Help_Script.NewLevel();
                 Help_Script.RunLevel();
                 break;
 

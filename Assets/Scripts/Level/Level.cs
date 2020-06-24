@@ -17,7 +17,7 @@ namespace Assets.Scripts.Level
         {
             Mobs = mobsProportion;
             SceneNumber = sceneNumber;
-            GenerateWaves(wavesCount, wavesCount * 12);
+            GenerateWaves(wavesCount, wavesCount * 10);
         }
     }
 }

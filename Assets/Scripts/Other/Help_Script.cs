@@ -14,29 +14,13 @@ public class Help_Script : MonoBehaviour
     public static int CntBullet; // Кол-во выпущенных пуль
     public static int CntMobs = 10;
     public static bool EndGame = false, IsPause = false;
-    public static int CntHP = 3;
-    public static int CurrentLevelNumber = 0;
 
-    public static Level CurrentLevel;
+    public static Level CurrentLevel = new Level(4, new Dictionary<MobType, double>
+    {
+        {MobType.Skeleton, 1}
+    });
 
     public static Level BonusLevel = new Level(5, new Dictionary<MobType, double> {{MobType.Cow, 1}}, 2);
-
-    public static List<Level> Levels = new List<Level>
-    {
-        new Level(4, new Dictionary<MobType, double>
-        {
-            {MobType.Skeleton, 1}
-        }),
-        new Level(5, new Dictionary<MobType, double>
-        {
-            {MobType.Skeleton, 1}
-        }),
-        new Level(6, new Dictionary<MobType, double>
-        {
-            {MobType.Skeleton, .9},
-            {MobType.Bes, .1}
-        })
-    };
 
     //Массив рекордов
     public static int[] Records = new int[1];
@@ -44,11 +28,47 @@ public class Help_Script : MonoBehaviour
     //Имя папки и файла для сохранения
     private static string FolderName = Application.dataPath + "/User_Data";
     private static string FName = FolderName + @"/" + "save.hy";
+    private static System.Random rnd = new System.Random();
 
-    public static void RunLevel(bool bonus = false)
+    public static void RunLevel()
     {
-        CurrentLevel = bonus ? BonusLevel : Levels[CurrentLevelNumber];
         CurrentLevel.RunLevel();
+    }
+
+    public static void NewLevel(bool bonus = false)
+    {
+        CurrentLevel = bonus ? BonusLevel : CreateNewLevel();
+    }
+
+    public static void ResetStats()
+    {
+        CurrentLevel = new Level(4, new Dictionary<MobType, double>
+        {
+            {MobType.Skeleton, 1}
+        });
+    }
+
+    public static void RestartLevel()
+    {
+        CurrentLevel.RunLevel();
+    }
+
+    public static Level CreateNewLevel()
+    {
+        var wavesCount = rnd.Next(CurrentLevel.Waves.Count, (int) (CurrentLevel.Waves.Count * 1.5));
+        return new Level(wavesCount, CreateProportions());
+    }
+
+    private static Dictionary<MobType, double> CreateProportions()
+    {
+        var skeletonProportion = rnd.NextDouble();
+        var besProportion = 1 - skeletonProportion;
+
+        return new Dictionary<MobType, double>
+        {
+            {MobType.Skeleton, skeletonProportion},
+            {MobType.Bes, besProportion}
+        };
     }
 
     //Сохранение массива рекордов в файл
