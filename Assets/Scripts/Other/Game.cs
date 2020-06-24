@@ -11,7 +11,7 @@ public class Game : MonoBehaviour
     public Text Kill, Bullet, CntMurder;
 
     // Use this for initialization
-    void Awake ()
+    void Awake()
     {
         Help_Script.cnt_Murder = 0;
         Help_Script.CntBullet = 0;
@@ -19,8 +19,8 @@ public class Game : MonoBehaviour
         Help_Script.CntMobs = Help_Script.CurrentLevel.Waves.Sum(wave => wave.MobsCount);
         Win.SetActive(false);
         Loose.SetActive(false);
-	    GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
-	    clone.transform.position = new Vector3(0f, 0f, 10f);
+        GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
+        clone.transform.position = new Vector3(0f, 0f, 10f);
         Help_Script.IsPause = false;
     }
 
@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
 
                 Help_Script.Save_Records();
             }
-            else 
+            else
             {
                 Loose.SetActive(true);
 

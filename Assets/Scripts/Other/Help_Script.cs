@@ -12,7 +12,8 @@ public class Help_Script : MonoBehaviour
     public static int cnt_Murder; // Кол-во убийств
     public static int SelectGG; // Выбранный герой
     public static int CntBullet; // Кол-во выпущенных пуль
-    public static int CntMobs = 10;
+    public static int CntMobs;
+    public static int CntHP = 3;
     public static bool EndGame = false, IsPause = false;
 
     public static Level CurrentLevel = new Level(4, new Dictionary<MobType, double>
@@ -32,6 +33,8 @@ public class Help_Script : MonoBehaviour
 
     public static void RunLevel()
     {
+        EndGame = false;
+        IsPause = false;
         CurrentLevel.RunLevel();
     }
 
@@ -42,6 +45,9 @@ public class Help_Script : MonoBehaviour
 
     public static void ResetStats()
     {
+        CntHP = 3;
+        cnt_Murder = 0;
+
         CurrentLevel = new Level(4, new Dictionary<MobType, double>
         {
             {MobType.Skeleton, 1}
@@ -50,6 +56,7 @@ public class Help_Script : MonoBehaviour
 
     public static void RestartLevel()
     {
+        CntHP = 3;
         CurrentLevel.RunLevel();
     }
 

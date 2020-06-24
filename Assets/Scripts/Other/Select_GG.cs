@@ -14,8 +14,8 @@ public class Select_GG : MonoBehaviour
     void Update()
     {
         T -= Time.deltaTime;
-        
-        if (Input.GetKeyDown(KeyCode.Space) || T<=0)
+
+        if (Input.GetKeyDown(KeyCode.Space) || T <= 0)
         {
             Story.SetActive(false);
             Sel_GG.SetActive(true);

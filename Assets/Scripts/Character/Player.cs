@@ -54,6 +54,7 @@ namespace Assets.Scripts.Character
             animator = GetComponent<Animator>();
             Weapon = gameObject.AddComponent(typeof(Crossbow)) as Crossbow;
             Weapon.Bullet_Pos = GetComponentsInChildren<Transform>()[1];
+            _cntHp = Help_Script.CntHP;
 
             for (int i = 0; i < MaxHp; i++)
             {
@@ -64,6 +65,14 @@ namespace Assets.Scripts.Character
         void Start()
         {
             EnableStayAnimation();
+        }
+
+        void Update()
+        {
+            if (Help_Script.EndGame)
+            {
+                Help_Script.CntHP = CntHp;
+            }
         }
 
         public void EnableStayAnimation()

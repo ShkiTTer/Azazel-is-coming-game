@@ -9,7 +9,16 @@ public class Btn : MonoBehaviour
 {
     public enum Action
     {
-        Level, Arena, Records, Exit, Bonus, CloseRecords, Restart, Menu, NextLevel, Resume
+        Level,
+        Arena,
+        Records,
+        Exit,
+        Bonus,
+        CloseRecords,
+        Restart,
+        Menu,
+        NextLevel,
+        Resume
     }
 
     public GameObject Rec;

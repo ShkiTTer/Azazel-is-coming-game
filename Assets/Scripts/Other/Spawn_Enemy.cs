@@ -51,7 +51,7 @@ public class Spawn_Enemy : MonoBehaviour
                 {
                     var mob = rnd.Next(Mobs.Count);
 
-                    Spawn(MobPrefabs[(int)Mobs[mob]]);
+                    Spawn(MobPrefabs[(int) Mobs[mob]]);
 
                     Mobs.RemoveAt(mob);
 

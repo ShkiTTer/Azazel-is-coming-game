@@ -16,67 +16,69 @@ public class Player_Behav : MonoBehaviour
     {
         Cam = Camera.main;
         player = GetComponent<Player>();
-	}
-
-	// Use this for initialization
-	void Start ()
-	{
-	    
     }
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	    if (!Help_Script.EndGame)
-	    {
-	        Cam.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 
-	        var mousePosition = Input.mousePosition;
-	        mousePosition = Cam.ScreenToWorldPoint(mousePosition); //положение мыши из экранных в мировые координаты
+    // Use this for initialization
+    void Start()
+    {
+    }
 
-	        var angle = Vector2.Angle(Vector2.up, mousePosition - transform.position);
-	            //угол между вектором от объекта к мыше и осью х
-	        transform.eulerAngles = new Vector3(0f, 0f, transform.position.x < mousePosition.x ? -angle : angle);
-	            //немного магии на последок
+    // Update is called once per frame
+    void Update()
+    {
+        if (!Help_Script.EndGame)
+        {
+            Cam.transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
 
-	        if (Input.GetKey(KeyCode.A)) // Движение влево
-	        {
-	            transform.position += Vector3.left * player.Speed * Time.deltaTime;
-	            player.EnableRunAnimation();
-	        }
-	        if (Input.GetKey(KeyCode.D)) // Движение вправо
-	        {
-	            transform.position += Vector3.right * player.Speed * Time.deltaTime;
-				player.EnableRunAnimation();
-			}
-	        if (Input.GetKey(KeyCode.W)) // Движение вверх
-	        {
-	            transform.position += Vector3.up * player.Speed * Time.deltaTime;
-				player.EnableRunAnimation();
-			}
-	        if (Input.GetKey(KeyCode.S)) // Движение вниз
-	        {
-	            transform.position += Vector3.down * player.Speed * Time.deltaTime;
-				player.EnableRunAnimation();
-			}
+            var mousePosition = Input.mousePosition;
+            mousePosition = Cam.ScreenToWorldPoint(mousePosition); //положение мыши из экранных в мировые координаты
 
-	        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) &&
-	            !Input.GetKey(KeyCode.S))
-	        {
-	            player.EnableStayAnimation();
-	        }
+            var angle = Vector2.Angle(Vector2.up, mousePosition - transform.position);
+            //угол между вектором от объекта к мыше и осью х
+            transform.eulerAngles = new Vector3(0f, 0f, transform.position.x < mousePosition.x ? -angle : angle);
+            //немного магии на последок
 
-	        if (IsTouch)
-	        {
-	            t -= Time.deltaTime;
+            if (Input.GetKey(KeyCode.A)) // Движение влево
+            {
+                transform.position += Vector3.left * player.Speed * Time.deltaTime;
+                player.EnableRunAnimation();
+            }
 
-	            if (t <= 0)
-	            {
+            if (Input.GetKey(KeyCode.D)) // Движение вправо
+            {
+                transform.position += Vector3.right * player.Speed * Time.deltaTime;
+                player.EnableRunAnimation();
+            }
+
+            if (Input.GetKey(KeyCode.W)) // Движение вверх
+            {
+                transform.position += Vector3.up * player.Speed * Time.deltaTime;
+                player.EnableRunAnimation();
+            }
+
+            if (Input.GetKey(KeyCode.S)) // Движение вниз
+            {
+                transform.position += Vector3.down * player.Speed * Time.deltaTime;
+                player.EnableRunAnimation();
+            }
+
+            if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W) &&
+                !Input.GetKey(KeyCode.S))
+            {
+                player.EnableStayAnimation();
+            }
+
+            if (IsTouch)
+            {
+                t -= Time.deltaTime;
+
+                if (t <= 0)
+                {
                     player.ChangeColor(Color.white);
-	                IsTouch = false;
-	            }
-	        }
-	    }
+                    IsTouch = false;
+                }
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D info)
@@ -87,8 +89,8 @@ public class Player_Behav : MonoBehaviour
             {
                 t = 0.15f;
                 player.CntHp--;
-				player.ChangeColor(Color.red);
-				IsTouch = true;
+                player.ChangeColor(Color.red);
+                IsTouch = true;
             }
         }
     }
