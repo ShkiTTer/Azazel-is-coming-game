@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Weapon
 {
-    abstract class BaseWeapon : MonoBehaviour
+    public abstract class BaseWeapon : MonoBehaviour
     {
         public Rigidbody2D Projectile;
         public Transform Bullet_Pos;

@@ -1,8 +1,5 @@
 ﻿using Assets.Scripts.Weapon;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +49,7 @@ namespace Assets.Scripts.Character
         {
             base.Awake();
             animator = GetComponent<Animator>();
-            Weapon = gameObject.AddComponent(typeof(Crossbow)) as Crossbow;
+            Weapon = gameObject.AddComponent(typeof(Pistol)) as Pistol;
             Weapon.Bullet_Pos = GetComponentsInChildren<Transform>()[1];
             _cntHp = Help_Script.CntHP;
 
@@ -85,6 +82,13 @@ namespace Assets.Scripts.Character
         {
             animator.SetBool(AnimationStay, false);
             animator.SetBool(AnimationRun, true);
+        }
+
+        public void SetWeapon<T>() where T : BaseWeapon
+        {
+            Destroy(Weapon);
+            Weapon = gameObject.AddComponent(typeof(T)) as T;
+            Weapon.Bullet_Pos = gameObject.GetComponentInChildren<Transform>();
         }
     }
 }

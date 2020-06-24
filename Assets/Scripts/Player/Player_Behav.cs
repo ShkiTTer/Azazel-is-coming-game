@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.Character;
+﻿using Assets.Scripts.Character;
+using Assets.Scripts.Weapon;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Player_Behav : MonoBehaviour
 {
@@ -66,6 +64,19 @@ public class Player_Behav : MonoBehaviour
                 !Input.GetKey(KeyCode.S))
             {
                 player.EnableStayAnimation();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Alpha1))
+            {
+                player.SetWeapon<Pistol>();
+            }
+            else if (Input.GetKeyUp(KeyCode.Alpha2))
+            {
+                player.SetWeapon<Crossbow>();
+            }
+            else if (Input.GetKeyUp(KeyCode.Alpha3))
+            {
+                player.SetWeapon<Rifle>();
             }
 
             if (IsTouch)
