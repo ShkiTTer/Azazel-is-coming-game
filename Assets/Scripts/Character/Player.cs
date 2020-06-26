@@ -1,5 +1,7 @@
-﻿using Assets.Scripts.Weapon;
+﻿using System;
+using Assets.Scripts.Weapon;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +17,7 @@ namespace Assets.Scripts.Character
         private BaseWeapon Weapon;
 
         public const int MaxHp = 3;
+        public List<AnimatorController> Controllers;
 
         public Sprite FullHP, LoseHP;
 
@@ -84,11 +87,15 @@ namespace Assets.Scripts.Character
             animator.SetBool(AnimationRun, true);
         }
 
-        public void SetWeapon<T>() where T : BaseWeapon
+        public void SetWeapon<T>(int weaponNum) where T : BaseWeapon
         {
-            Destroy(Weapon);
-            Weapon = gameObject.AddComponent(typeof(T)) as T;
-            Weapon.Bullet_Pos = gameObject.GetComponentInChildren<Transform>();
+            if (Help_Script.Weapons[0])
+            {
+                animator.runtimeAnimatorController = Controllers[weaponNum];
+                Destroy(Weapon);
+                Weapon = gameObject.AddComponent(typeof(T)) as T;
+                Weapon.Bullet_Pos = gameObject.GetComponentInChildren<Transform>();
+            }
         }
     }
 }

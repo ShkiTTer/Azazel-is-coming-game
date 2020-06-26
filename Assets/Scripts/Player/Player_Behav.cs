@@ -68,15 +68,15 @@ public class Player_Behav : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.Alpha1))
             {
-                player.SetWeapon<Pistol>();
+                player.SetWeapon<Pistol>(0);
             }
             else if (Input.GetKeyUp(KeyCode.Alpha2))
             {
-                player.SetWeapon<Crossbow>();
+                player.SetWeapon<Crossbow>(1);
             }
             else if (Input.GetKeyUp(KeyCode.Alpha3))
             {
-                player.SetWeapon<Rifle>();
+                player.SetWeapon<Rifle>(2);
             }
 
             if (IsTouch)
