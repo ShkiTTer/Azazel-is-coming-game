@@ -14,6 +14,7 @@ public class Help_Script : MonoBehaviour
     public static int CntBullet; // Кол-во выпущенных пуль
     public static int CntMobs;
     public static int CntHP = 3;
+    public static int Money = 0;
     public static bool EndGame = false, IsPause = false;
 
     public static Level CurrentLevel = new Level(4, new Dictionary<MobType, double>

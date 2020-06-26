@@ -7,9 +7,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.Character
 {
-    public class Mob: Character
+    public class Mob : Character
     {
         public Transform Player;
+        public int Award;
+
+        public int minHp, maxHp;
 
         public override int CntHp
         {
@@ -22,6 +25,7 @@ namespace Assets.Scripts.Character
                 {
                     Help_Script.cnt_Murder += 1;
                     Help_Script.CntMobs--;
+                    Help_Script.Money += Award;
                     Destroy(gameObject);
                 }
             }
@@ -31,6 +35,8 @@ namespace Assets.Scripts.Character
         {
             base.Awake();
             Player = GameObject.FindWithTag("Player").transform;
+            CntHp = new System.Random().Next(minHp, maxHp);
+            Award = (int) Mathf.Log(CntHp) * 5;
         }
     }
 }

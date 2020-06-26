@@ -157,3 +157,6 @@ MonoBehaviour:
   _cntHp: 500
   _speed: 4.5
   Player: {fileID: 0}
+  Award: 0
+  minHp: 450
+  maxHp: 800
