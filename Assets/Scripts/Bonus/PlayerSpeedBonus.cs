@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Bonus
 {
-    public class PlayerSpeedBonus: Bonus<float>
+    public class PlayerSpeedBonus: ABonus
     {
         [SerializeField]
         private float _bonusValue;

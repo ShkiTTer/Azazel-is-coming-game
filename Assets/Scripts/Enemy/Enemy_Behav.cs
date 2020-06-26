@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Bonus;
 using Assets.Scripts.Bullet;
 using Assets.Scripts.Character;
 using UnityEngine;
@@ -48,6 +49,29 @@ public class Enemy_Behav : MonoBehaviour
             mob.CntHp -= (int)(info.gameObject.GetComponent<Projectile>().Damage * Help_Script.DamageMultipliers[Help_Script.CurrentWeapon]);
             mob.ChangeColor(Color.red);
             IsTouch = true;
+
+            if (mob.CntHp <= 0)
+            {
+                if (Random.Range(0, 1f) < 0.2f)
+                {
+                    GameObject obj;
+                    switch ((BonusType)Random.Range(0, 3))
+                    {
+                        case BonusType.PlayerSpeed:
+                            obj = Instantiate(Resources.Load("speed_up") as GameObject);
+                            obj.transform.position = this.gameObject.transform.position;
+                            break;
+                        case BonusType.Health:
+                            obj = Instantiate(Resources.Load("HpBonus") as GameObject);
+                            obj.transform.position = this.gameObject.transform.position;
+                            break;
+                        case BonusType.FiringRate:
+                            obj = Instantiate(Resources.Load("firerate_up") as GameObject);
+                            obj.transform.position = this.gameObject.transform.position;
+                            break;
+                    }
+                }
+            }
         }
     }
 }

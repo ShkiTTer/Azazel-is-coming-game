@@ -1,5 +1,8 @@
-﻿using Assets.Scripts.Character;
+﻿using Assets.Scripts.Bonus;
+using Assets.Scripts.Character;
 using Assets.Scripts.Weapon;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player_Behav : MonoBehaviour
@@ -103,6 +106,39 @@ public class Player_Behav : MonoBehaviour
                 player.ChangeColor(Color.red);
                 IsTouch = true;
             }
+
+            if (info.gameObject.tag == "Bonus")
+            {
+                ABonus bonus = info.gameObject.GetComponent<ABonus>();
+                switch (bonus.Type)
+                {
+                    case BonusType.Health:
+                        player.CntHp++;
+                        break;
+                    case BonusType.PlayerSpeed:
+                        player.Speed += bonus.BonusValue;
+                        StartCoroutine(Delay(5, () => { player.Speed -= bonus.BonusValue; return true; }));
+                        break;
+                    case BonusType.FiringRate:
+                        Crossbow.shootDelay -= bonus.BonusValue;
+                        Rifle.shootDelay -= bonus.BonusValue;
+                        Pistol.shootDelay -= bonus.BonusValue;
+                        StartCoroutine(Delay(5, () =>
+                        {
+                            Crossbow.shootDelay += bonus.BonusValue;
+                            Rifle.shootDelay += bonus.BonusValue;
+                            Pistol.shootDelay += bonus.BonusValue;
+                            return true;
+                        }));
+                        break;
+                }
+            }
         }
+    }
+
+    private IEnumerator<WaitForSeconds> Delay(int seconds, Func<bool> func)
+    {
+        yield return new WaitForSeconds(seconds);
+        func();
     }
 }

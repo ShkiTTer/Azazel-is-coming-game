@@ -7,11 +7,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.Bonus
 {
-    public class HealthBonus: Bonus<Int32>
+    public class HealthBonus: ABonus
     {
         [SerializeField]
         private int _bonusValue = 1;
-        public override int BonusValue => _bonusValue;
+        public override float BonusValue => _bonusValue;
         public override BonusType Type { get; } = BonusType.Health;
     }
 }

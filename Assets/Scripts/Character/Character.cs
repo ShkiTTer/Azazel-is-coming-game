@@ -23,7 +23,7 @@ namespace Assets.Scripts.Character
         public virtual float Speed
         {
             get => _speed;
-            protected set => _speed = value;
+            set => _speed = value;
         }
 
         protected virtual void Awake()

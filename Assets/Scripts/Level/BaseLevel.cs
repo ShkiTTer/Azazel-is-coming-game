@@ -35,7 +35,7 @@ namespace Assets.Scripts.Level
 
             for (int i = 0; i < waveProportion.Count; i++)
             {
-                var delta = mobsProportion[i] / waveProportion[i] / 4;
+                var delta = mobsProportion[i] / waveProportion[i] / 2;
 
                 for (int j = 0; j < waveProportion[i]; j++)
                 {

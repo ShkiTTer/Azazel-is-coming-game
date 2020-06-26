@@ -14,6 +14,7 @@ TagManager:
   - Canvas_Win
   - Canvas_Loose
   - Bonus
+  - Projectile
   layers:
   - Default
   - TransparentFX
