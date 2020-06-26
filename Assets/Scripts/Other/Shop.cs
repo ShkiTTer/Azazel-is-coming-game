@@ -6,8 +6,17 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    public Text CrossbowPrice, RiflePrice;
-    private Player player;
+    [Header("Shops")]
+    public GameObject WeaponShop;
+    public GameObject BufShop;
+    [Header("Weapons price")]
+    public Text CrossbowPrice;
+    public Text RiflePrice;
+    [Header("Bufs price")] 
+    public Text CrossbowDamagePrice;
+    public Text CrossbowRatePrice;
+    public Text RifleDamagePrice;
+    public Text RifleRatePrice;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +24,16 @@ public class Shop : MonoBehaviour
         CrossbowPrice.text = Help_Script.Weapons[1] ? "Bought" : Help_Script.CrossbowPrice.ToString();
         RiflePrice.text = Help_Script.Weapons[2] ? "Bought" : Help_Script.RiflePrice.ToString();
 
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
-    }
+        CrossbowDamagePrice.text = Help_Script.CrossbowDamagePrice.ToString();
+        CrossbowRatePrice.text = Help_Script.CrossbowRatePrice.ToString();
+        RifleDamagePrice.text = Help_Script.RifleDamagePrice.ToString();
+        RifleRatePrice.text = Help_Script.RifleRatePrice.ToString();
 
-    // Update is called once per frame
-    void Update()
-    {
+        if (Help_Script.Weapons[1] && Help_Script.Weapons[2])
+        {
+            WeaponShop.SetActive(!WeaponShop.activeInHierarchy);
+            BufShop.SetActive(!BufShop.activeInHierarchy);
+        }
     }
 
     public void ShopClick(int n)
@@ -28,21 +41,42 @@ public class Shop : MonoBehaviour
         switch (n)
         {
             case 0:
-                // TODO: Click replace button
+                WeaponShop.SetActive(!WeaponShop.activeInHierarchy);
+                BufShop.SetActive(!BufShop.activeInHierarchy);
                 break;
 
             case 1:
-                if (Help_Script.CrossbowPrice <= Help_Script.Money)
+                if (!Help_Script.Weapons[1] && Help_Script.CrossbowPrice <= Help_Script.Money)
                 {
                     Help_Script.Weapons[1] = true;
+                    Help_Script.Money -= Help_Script.CrossbowPrice;
+                    CrossbowPrice.text = "Bought";
                 }
                 break;
 
             case 2:
-                if (Help_Script.RiflePrice <= Help_Script.Money)
+                if (!Help_Script.Weapons[2] && Help_Script.RiflePrice <= Help_Script.Money)
                 {
                     Help_Script.Weapons[2] = true;
+                    Help_Script.Money -= Help_Script.RiflePrice;
+                    RiflePrice.text = "Bought";
                 }
+                break;
+
+            case 4:
+
+                break;
+
+            case 5:
+
+                break;
+
+            case 6:
+
+                break;
+
+            case 7:
+
                 break;
         }
     }

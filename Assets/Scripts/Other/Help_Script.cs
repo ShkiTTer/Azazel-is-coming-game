@@ -21,6 +21,8 @@ public class Help_Script : MonoBehaviour
     public static List<Boolean> Weapons = new List<bool> {true, false, false};
 
     public static int CrossbowPrice = 1000, RiflePrice = 1500;
+    public static int CrossbowDamagePrice = 100, CrossbowRatePrice = 100;
+    public static int RifleDamagePrice = 100, RifleRatePrice = 100;
 
     public static Level CurrentLevel = new Level(4, new Dictionary<MobType, double>
     {

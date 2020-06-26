@@ -55,12 +55,13 @@ public class Game : MonoBehaviour
             Pause.SetActive(Help_Script.IsPause);
 
             CntMurder.text = Help_Script.cnt_Murder.ToString();
-            CntCoin.text = Help_Script.Money.ToString();
 
             if (Help_Script.CntMobs == 0)
             {
                 Help_Script.EndGame = true;
             }
         }
+
+        CntCoin.text = Help_Script.Money.ToString();
     }
 }
