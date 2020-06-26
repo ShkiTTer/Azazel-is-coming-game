@@ -3135,6 +3135,7 @@ MonoBehaviour:
   Kill: {fileID: 535409990}
   Bullet: {fileID: 226318156}
   CntMurder: {fileID: 247410550}
+  CntCoin: {fileID: 1510474805}
 --- !u!82 &903811777
 AudioSource:
   m_ObjectHideFlags: 0

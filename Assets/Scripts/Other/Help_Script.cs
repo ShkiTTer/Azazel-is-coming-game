@@ -17,6 +17,8 @@ public class Help_Script : MonoBehaviour
     public static int Money = 0;
     public static bool EndGame = false, IsPause = false;
 
+    public static int CrossbowPrice = 1000, RiflePrice = 1500;
+
     public static Level CurrentLevel = new Level(4, new Dictionary<MobType, double>
     {
         {MobType.Skeleton, 1}
