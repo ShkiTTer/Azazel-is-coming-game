@@ -15,7 +15,7 @@ public class Help_Script : MonoBehaviour
     public static int CntBullet; // Кол-во выпущенных пуль
     public static int CntMobs;
     public static int CntHP = 3;
-    public static int Money = 0;
+    public static int Money = 1000;
     public static bool EndGame = false, IsPause = false;
 
     public static List<Boolean> Weapons = new List<bool> {true, false, false};

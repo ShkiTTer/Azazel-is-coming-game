@@ -89,7 +89,7 @@ namespace Assets.Scripts.Character
 
         public void SetWeapon<T>(int weaponNum) where T : BaseWeapon
         {
-            if (Help_Script.Weapons[0])
+            if (Help_Script.Weapons[weaponNum])
             {
                 animator.runtimeAnimatorController = Controllers[weaponNum];
                 Destroy(Weapon);

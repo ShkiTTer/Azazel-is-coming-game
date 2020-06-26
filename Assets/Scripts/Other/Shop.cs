@@ -12,8 +12,8 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CrossbowPrice.text = Help_Script.CrossbowPrice.ToString();
-        RiflePrice.text = Help_Script.RiflePrice.ToString();
+        CrossbowPrice.text = Help_Script.Weapons[1] ? "Bought" : Help_Script.CrossbowPrice.ToString();
+        RiflePrice.text = Help_Script.Weapons[2] ? "Bought" : Help_Script.RiflePrice.ToString();
 
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
     }
