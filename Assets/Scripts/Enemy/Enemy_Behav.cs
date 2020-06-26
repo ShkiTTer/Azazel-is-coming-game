@@ -45,7 +45,7 @@ public class Enemy_Behav : MonoBehaviour
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), info.collider);
             t = 0.15f;
-            mob.CntHp -= info.gameObject.GetComponent<Projectile>().Damage;
+            mob.CntHp -= (int)(info.gameObject.GetComponent<Projectile>().Damage * Help_Script.DamageMultipliers[Help_Script.CurrentWeapon]);
             mob.ChangeColor(Color.red);
             IsTouch = true;
         }

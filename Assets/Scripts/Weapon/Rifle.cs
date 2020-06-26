@@ -9,11 +9,12 @@ namespace Assets.Scripts.Weapon
 {
     class Rifle : BaseWeapon
     {
+        public static float shootDelay = 0.6f;
+
         void Awake()
         {
             Projectile = (Resources.Load("Bullet") as GameObject).GetComponent<Rigidbody2D>();
             Speed = 600;
-            shootDelay = 0.6f;
         }
 
         override protected IEnumerator<WaitForSeconds> FireType(Quaternion q)
@@ -25,6 +26,12 @@ namespace Assets.Scripts.Weapon
                 yield return new WaitForSeconds(0.05f);
             }
             StartCoroutine(ShootDelay());
+        }
+
+        override protected IEnumerator<WaitForSeconds> ShootDelay()
+        {
+            yield return new WaitForSeconds(shootDelay);
+            canShoot = true;
         }
     }
 }

@@ -9,11 +9,12 @@ namespace Assets.Scripts.Weapon
 {
     class Crossbow : BaseWeapon
     {
+        public static float shootDelay = 0.8f;
+
         void Awake()
         {
             Projectile = (Resources.Load("Bolt") as GameObject).GetComponent<Rigidbody2D>();
             Speed = 450;
-            shootDelay = 0.8f;
         }
 
         override protected IEnumerator<WaitForSeconds> FireType(Quaternion q)
@@ -22,6 +23,12 @@ namespace Assets.Scripts.Weapon
             projectile.AddForce(projectile.transform.up * Speed);
             yield return new WaitForSeconds(0f);
             StartCoroutine(ShootDelay());
+        }
+
+        override protected IEnumerator<WaitForSeconds> ShootDelay()
+        {
+            yield return new WaitForSeconds(shootDelay);
+            canShoot = true;
         }
     }
 }

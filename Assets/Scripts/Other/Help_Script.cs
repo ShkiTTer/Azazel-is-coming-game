@@ -19,6 +19,8 @@ public class Help_Script : MonoBehaviour
     public static bool EndGame = false, IsPause = false;
 
     public static List<Boolean> Weapons = new List<bool> {true, false, false};
+    public static List<float> DamageMultipliers = new List<float> { 1f, 1f, 1f };
+    public static int CurrentWeapon = 0;
 
     public static int CrossbowPrice = 1000, RiflePrice = 1500;
     public static int CrossbowDamagePrice = 100, CrossbowRatePrice = 100;

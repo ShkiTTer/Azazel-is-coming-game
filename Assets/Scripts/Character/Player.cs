@@ -91,6 +91,7 @@ namespace Assets.Scripts.Character
         {
             if (Help_Script.Weapons[weaponNum])
             {
+                Help_Script.CurrentWeapon = weaponNum;
                 animator.runtimeAnimatorController = Controllers[weaponNum];
                 Destroy(Weapon);
                 Weapon = gameObject.AddComponent(typeof(T)) as T;

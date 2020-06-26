@@ -13,9 +13,9 @@ namespace Assets.Scripts.Weapon
         public Transform Bullet_Pos;
         public float Speed;
         public bool canShoot = true;
-        public float shootDelay = 1f;
 
         abstract protected IEnumerator<WaitForSeconds> FireType(Quaternion q);
+        abstract protected IEnumerator<WaitForSeconds> ShootDelay();
 
         void Update()
         {
@@ -40,12 +40,6 @@ namespace Assets.Scripts.Weapon
             }
 
             Help_Script.CntBullet++;
-        }
-
-        protected IEnumerator<WaitForSeconds> ShootDelay()
-        {
-            yield return new WaitForSeconds(shootDelay);
-            canShoot = true;
         }
     }
 }
