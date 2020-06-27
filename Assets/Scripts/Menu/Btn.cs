@@ -89,6 +89,8 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Resume:
+                Help_Script.EndGame = false;
+                Help_Script.IsPause = false;
                 Help_Script.IsPause = false;
                 Time.timeScale = 1f;
                 break;

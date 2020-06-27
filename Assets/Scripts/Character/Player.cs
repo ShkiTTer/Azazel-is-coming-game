@@ -1,7 +1,6 @@
 ﻿using System;
 using Assets.Scripts.Weapon;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +16,7 @@ namespace Assets.Scripts.Character
         private BaseWeapon Weapon;
 
         public const int MaxHp = 3;
-        public List<AnimatorController> Controllers;
+        public List<RuntimeAnimatorController> Controllers;
 
         public Sprite FullHP, LoseHP;
 

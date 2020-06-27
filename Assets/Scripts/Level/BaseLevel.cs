@@ -14,7 +14,11 @@ namespace Assets.Scripts.Level
 
         public void RunLevel()
         {
+            Help_Script.EndGame = false;
+            Help_Script.IsPause = false;
             SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
+            Help_Script.EndGame = false;
+            Help_Script.IsPause = false;
         }
 
         protected void GenerateWaves(int wavesCount, int mobsCount)
