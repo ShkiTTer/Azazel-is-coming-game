@@ -35,6 +35,8 @@ public class Btn : MonoBehaviour
         switch ((Action) action)
         {
             case Action.Level:
+                Help_Script.EndGame = false;
+                Help_Script.IsPause = false;
                 SceneManager.LoadScene(2, LoadSceneMode.Single);
                 break;
 
@@ -67,15 +69,21 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Restart:
+                Help_Script.EndGame = false;
+                Help_Script.IsPause = false;
                 Help_Script.RestartLevel();
                 break;
 
             case Action.Menu:
+                Help_Script.EndGame = false;
+                Help_Script.IsPause = false;
                 Help_Script.ResetStats();
                 SceneManager.LoadScene(0);
                 break;
 
             case Action.NextLevel:
+                Help_Script.EndGame = false;
+                Help_Script.IsPause = false;
                 Help_Script.NewLevel();
                 Help_Script.RunLevel();
                 break;

@@ -19,11 +19,6 @@ public class Player_Behav : MonoBehaviour
         player = GetComponent<Player>();
     }
 
-    // Use this for initialization
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {

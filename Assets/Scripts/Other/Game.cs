@@ -15,11 +15,9 @@ public class Game : MonoBehaviour
     {
         Help_Script.cnt_Murder = 0;
         Help_Script.CntBullet = 0;
-        Help_Script.EndGame = false;
         Help_Script.CntMobs = Help_Script.CurrentLevel.Waves.Sum(wave => wave.MobsCount);
         GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
         clone.transform.position = new Vector3(0f, 0f, 10f);
-        Help_Script.IsPause = false;
     }
 
     void Start()
@@ -31,6 +29,8 @@ public class Game : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Help_Script.EndGame);
+
         if (Help_Script.EndGame)
         {
             if (Help_Script.CntMobs == 0)

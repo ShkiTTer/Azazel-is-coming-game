@@ -75,6 +75,8 @@ public class Help_Script : MonoBehaviour
     {
         Money = AllMoney;
         CntHP = 3;
+        EndGame = false;
+        IsPause = false;
         CurrentLevel.RunLevel();
     }
 
