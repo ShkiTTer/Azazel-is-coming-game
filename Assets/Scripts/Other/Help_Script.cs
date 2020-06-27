@@ -15,6 +15,7 @@ public class Help_Script : MonoBehaviour
     public static int CntBullet; // Кол-во выпущенных пуль
     public static int CntMobs;
     public static int CntHP = 3;
+    public static int AllMoney = 1000;
     public static int Money = 1000;
     public static bool EndGame = false, IsPause = false;
 
@@ -31,7 +32,7 @@ public class Help_Script : MonoBehaviour
         {MobType.Skeleton, 1}
     });
 
-    public static Level BonusLevel = new Level(5, new Dictionary<MobType, double> {{MobType.Cow, 1}}, 2);
+    public static Level BonusLevel = new Level(5, new Dictionary<MobType, double> {{MobType.Cow, 1}}, 3);
 
     //Массив рекордов
     public static int[] Records = new int[1];
@@ -51,12 +52,18 @@ public class Help_Script : MonoBehaviour
     public static void NewLevel(bool bonus = false)
     {
         CurrentLevel = bonus ? BonusLevel : CreateNewLevel();
+        AllMoney = Money;
     }
 
     public static void ResetStats()
     {
         CntHP = 3;
         cnt_Murder = 0;
+        AllMoney = 0;
+        Money = 0;
+        CurrentWeapon = 0;
+        Weapons = new List<bool> { true, false, false };
+        DamageMultipliers = new List<float> { 1f, 1f, 1f };
 
         CurrentLevel = new Level(4, new Dictionary<MobType, double>
         {
@@ -66,6 +73,7 @@ public class Help_Script : MonoBehaviour
 
     public static void RestartLevel()
     {
+        Money = AllMoney;
         CntHP = 3;
         CurrentLevel.RunLevel();
     }

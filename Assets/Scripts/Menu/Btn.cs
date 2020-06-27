@@ -35,7 +35,7 @@ public class Btn : MonoBehaviour
         switch ((Action) action)
         {
             case Action.Level:
-                SceneManager.LoadScene(3, LoadSceneMode.Single);
+                SceneManager.LoadScene(2, LoadSceneMode.Single);
                 break;
 
             case Action.Exit:
@@ -55,6 +55,9 @@ public class Btn : MonoBehaviour
                 break;
 
             case Action.Bonus:
+                Help_Script.Weapons[1] = true;
+                Help_Script.Weapons[0] = false;
+                Help_Script.CurrentWeapon = 1;
                 Help_Script.NewLevel(true);
                 Help_Script.RunLevel();
                 Help_Script.SelectGG = 0;

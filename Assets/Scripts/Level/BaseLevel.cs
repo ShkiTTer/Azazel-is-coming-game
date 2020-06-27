@@ -14,7 +14,7 @@ namespace Assets.Scripts.Level
 
         public void RunLevel()
         {
-            SceneManager.LoadScene(SceneNumber, LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneNumber);
         }
 
         protected void GenerateWaves(int wavesCount, int mobsCount)

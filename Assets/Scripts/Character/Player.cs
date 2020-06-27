@@ -54,16 +54,21 @@ namespace Assets.Scripts.Character
             animator = GetComponent<Animator>();
             Weapon = gameObject.AddComponent(typeof(Pistol)) as Pistol;
             Weapon.Bullet_Pos = GetComponentsInChildren<Transform>()[1];
-            _cntHp = Help_Script.CntHP;
 
             for (int i = 0; i < MaxHp; i++)
             {
                 hpObjects.Add(GameObject.Find($"HP_{i + 1}").GetComponent<Image>());
             }
+
+            if (Help_Script.CurrentLevel == Help_Script.BonusLevel)
+            {
+                SetWeapon<Crossbow>(1);
+            }
         }
 
         void Start()
         {
+            CntHp = Help_Script.CntHP;
             EnableStayAnimation();
         }
 

@@ -17,11 +17,16 @@ public class Game : MonoBehaviour
         Help_Script.CntBullet = 0;
         Help_Script.EndGame = false;
         Help_Script.CntMobs = Help_Script.CurrentLevel.Waves.Sum(wave => wave.MobsCount);
-        Win.SetActive(false);
-        Loose.SetActive(false);
         GameObject clone = Instantiate(GG[Help_Script.SelectGG]);
         clone.transform.position = new Vector3(0f, 0f, 10f);
         Help_Script.IsPause = false;
+    }
+
+    void Start()
+    {
+        Win.SetActive(false);
+        Loose.SetActive(false);
+        Pause.SetActive(false);
     }
 
     void Update()
